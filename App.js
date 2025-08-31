@@ -35,16 +35,6 @@ const App = () => {
           daysToNext={5}
           onGrow={() => console.log("Grow pressed!")}
         />
-
-        {/* 필요하면 카드 여러 개 테스트 */}
-        {/* <GrowthStageCard
-          title="Growth Stage"
-          stage="Leaf"
-          daysDone={2}
-          daysTotal={10}
-          daysToNext={8}
-          onGrow={() => alert("Second card grow!")}
-        /> */}
       </ScrollView>
     </SafeAreaView>
   );
