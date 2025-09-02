@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16
   },
   buttonText: {
-    fontSize: FontSize.size_14,
+    fontSize: 14,
     color: Color.colorGray,
     fontFamily: FontFamily.notoSansKRRegular,
     letterSpacing: -0.3,
