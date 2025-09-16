@@ -1,4 +1,4 @@
-
+// screens/GrowthTree0.js
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,55 +9,66 @@ import GrowthText from "./ex)components_seonwoo/GrowthText";
 import GrowthStage from "./ex)components_seonwoo/GrowthStage";
 import GrowthEmotion from "./ex)components_seonwoo/GrowthEmotion";
 
-// ✅ Seed 이미지 (SVG)
-import SeedImg from "./assets/tree.svg";
+// ✅ Tree0 이미지 (SVG)
+import TreeImg from "./assets/tree.svg";
 
 // ✅ Anticipation 아이콘
 import AnticipationIcon from "./components_yunseo/assets/AnticipationIcon.svg";
 
-const GrowthSeed = () => {
+const GrowthTree0 = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* 상단바 */}
-      <Top_section1 title="Growth Dashboard" onBack={() => console.log("뒤로가기")} />
-
-      {/* Growth Dashboard ↔ Current Stage : tree */}
-      <View style={{ marginTop: 10 }}>
-        <GrowthText text="Current Stage : tree" />
-      </View>
-
-      {/* Current Stage ↔ tree 이미지 (207 고정) */}
-      <View style={{ marginTop: 147 }}>
-        <SeedImg width={150} height={150} />
-      </View>
-
-      {/* tree 이미지 ↔ GrowthStage (102) */}
-      <View style={{ marginTop: 102 }}>
-        <GrowthStage label="Next Stage : 5/7 days" percentage={71} />
-      </View>
-
-      {/* GrowthStage ↔ GrowthEmotion (12) */}
-      <View style={{ marginTop: 12 }}>
-        <GrowthEmotion
-          frequent={{
-            key: "anticipation",
-            label: "Anticipation",
-            Icon: AnticipationIcon,
-          }}
-          onPressStatics={() => console.log("Statics pressed")}
+      {/* 상단 영역 */}
+      <View style={styles.topSection}>
+        <Top_section1
+          title="Growth Dashboard"
+          onBack={() => console.log("뒤로가기")}
         />
+        <GrowthText text="Current Stage : Tree" />
+      </View>
+
+      {/* 중앙 아이콘 */}
+      <View style={styles.centerWrapper}>
+        <TreeImg width={130} height={164} />
+      </View>
+
+      {/* 하단 영역 */}
+      <View style={styles.bottomSection}>
+        <GrowthStage label="Next Stage : 5/7 days" percentage={71} />
+
+        <View style={{ marginTop: 12 }}>
+          <GrowthEmotion
+            frequent={{
+              key: "anticipation",
+              label: "Anticipation",
+              Icon: AnticipationIcon,
+            }}
+            onPressStatics={() => console.log("Statics pressed")}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default GrowthSeed;
+export default GrowthTree0;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#181221", // ✅ Figma 배경색
+  },
+  topSection: {
     alignItems: "center",
-    paddingTop: 0,
+    marginBottom: 20,
+  },
+  centerWrapper: {
+    flex: 1, // 상단/하단 사이 공간 차지
+    justifyContent: "center", // 세로 중앙
+    alignItems: "center", // 가로 중앙
+  },
+  bottomSection: {
+    paddingBottom: 20,
+    alignItems: "center",
   },
 });

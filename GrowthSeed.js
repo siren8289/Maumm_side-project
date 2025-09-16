@@ -18,34 +18,34 @@ import AnticipationIcon from "./components_yunseo/assets/AnticipationIcon.svg";
 const GrowthSeed = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* 상단바 */}
-      <Top_section1 title="Growth Dashboard" onBack={() => console.log("뒤로가기")} />
-
-      {/* Growth Dashboard ↔ Current Stage : Seed */}
-      <View style={{ marginTop: 10 }}>
+      {/* 상단 영역 */}
+      <View style={styles.topSection}>
+        <Top_section1
+          title="Growth Dashboard"
+          onBack={() => console.log("뒤로가기")}
+        />
         <GrowthText text="Current Stage : Seed" />
       </View>
 
-      {/* Current Stage ↔ Seed 이미지 (207 고정) */}
-      <View style={{ marginTop: 147 }}>
-        <SeedImg width={150} height={150} />
+      {/* 중앙 아이콘 */}
+      <View style={styles.centerWrapper}>
+        <SeedImg width={113} height={86} />
       </View>
 
-      {/* Seed 이미지 ↔ GrowthStage (102) */}
-      <View style={{ marginTop: 102 }}>
+      {/* 하단 영역 */}
+      <View style={styles.bottomSection}>
         <GrowthStage label="Next Stage : 5/7 days" percentage={71} />
-      </View>
 
-      {/* GrowthStage ↔ GrowthEmotion (12) */}
-      <View style={{ marginTop: 12 }}>
-        <GrowthEmotion
-          frequent={{
-            key: "anticipation",
-            label: "Anticipation",
-            Icon: AnticipationIcon,
-          }}
-          onPressStatics={() => console.log("Statics pressed")}
-        />
+        <View style={{ marginTop: 12 }}>
+          <GrowthEmotion
+            frequent={{
+              key: "anticipation",
+              label: "Anticipation",
+              Icon: AnticipationIcon,
+            }}
+            onPressStatics={() => console.log("Statics pressed")}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -57,7 +57,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#181221", // ✅ Figma 배경색
+  },
+  topSection: {
     alignItems: "center",
-    paddingTop: 0,
+    marginBottom: 20, // 상단바와 텍스트 간격
+  },
+  centerWrapper: {
+    flex: 1, // 남은 공간 전부 차지
+    justifyContent: "center", // 세로 중앙
+    alignItems: "center", // 가로 중앙
+  },
+  bottomSection: {
+    paddingBottom: 20,
+    alignItems: "center",
   },
 });

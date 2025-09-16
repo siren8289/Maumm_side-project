@@ -1,3 +1,4 @@
+// screens/GrowthTree3.js
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,25 +15,34 @@ import AnticipationIcon from "./components_yunseo/assets/AnticipationIcon.svg";
 const GrowthTree3 = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <Top_section1 title="Growth Dashboard" onBack={() => console.log("뒤로가기")} />
-
-      <View style={{ marginTop: 10 }}>
+      {/* 상단 영역 */}
+      <View style={styles.topSection}>
+        <Top_section1
+          title="Growth Dashboard"
+          onBack={() => console.log("뒤로가기")}
+        />
         <GrowthText text="Current Stage : Tree" />
       </View>
 
-      <View style={{ marginTop: 147 }}>
-        <TreeImg width={150} height={150} />
+      {/* 중앙 아이콘 */}
+      <View style={styles.centerWrapper}>
+        <TreeImg width={240} height={230} />
       </View>
 
-      <View style={{ marginTop: 102 }}>
+      {/* 하단 영역 */}
+      <View style={styles.bottomSection}>
         <GrowthStage label="Next Stage : 5/7 days" percentage={71} />
-      </View>
 
-      <View style={{ marginTop: 12 }}>
-        <GrowthEmotion
-          frequent={{ key: "anticipation", label: "Anticipation", Icon: AnticipationIcon }}
-          onPressStatics={() => console.log("Statics pressed")}
-        />
+        <View style={{ marginTop: 12 }}>
+          <GrowthEmotion
+            frequent={{
+              key: "anticipation",
+              label: "Anticipation",
+              Icon: AnticipationIcon,
+            }}
+            onPressStatics={() => console.log("Statics pressed")}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -43,8 +53,19 @@ export default GrowthTree3;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#181221",
+    backgroundColor: "#181221", // ✅ Figma 배경색
+  },
+  topSection: {
     alignItems: "center",
-    paddingTop: 0,
+    marginBottom: 20,
+  },
+  centerWrapper: {
+    flex: 1, // 상단/하단 사이 공간
+    justifyContent: "center", // 세로 중앙
+    alignItems: "center", // 가로 중앙
+  },
+  bottomSection: {
+    paddingBottom: 20,
+    alignItems: "center",
   },
 });

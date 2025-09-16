@@ -1,7 +1,12 @@
 // App.js
 import React from "react";
-import GrowthTree3 from "./GrowthTree3"; // ✅ Tree 화면 불러오기
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import GrowthSeed from "./GrowthSeed";
 
 export default function App() {
-  return <GrowthTree3 />;
+  return (
+    <SafeAreaProvider>
+      <GrowthSeed />
+    </SafeAreaProvider>
+  );
 }
